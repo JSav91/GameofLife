@@ -23,7 +23,7 @@ public class Cell extends JPanel{
 
 		this.GridRow = GridRow;
 		this.GridColumn = GridColumn;
-		if((Math.random()<0.1)?false:true){
+		if((Math.random()<0.01)?false:true){
 			this.state=0;
 			setBackground(Color.BLACK);
 		}else {

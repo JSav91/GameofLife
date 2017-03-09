@@ -30,17 +30,31 @@ public class GridManager extends JFrame{
 		//Set JFame layout
 		super.setLayout(new GridLayout(rows, cols ,1,1));
 		GameOfLifeMain.presentCellStateArray= new Cell[rows][cols];
+		GameOfLifeMain.futureCellStateArray = new Cell[rows][cols];
 		//Populate the grid
 		for(int x=0; x<rows; x++){ 
 			for(int y=0; y<cols; y++){
 				//adds cells to grid
 				super.add(GameOfLifeMain.presentCellStateArray[x][y]= new Cell(rows,cols)); 
+				//initialise parallel array
+				GameOfLifeMain.futureCellStateArray[x][y] = new Cell(rows,cols);
 			}
 		}
 		//TEST /cell[20][20].setBackground(Color.GREEN);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.pack();
 		super.setVisible(true);
+	}
+	
+	public void createGridiew(int rows,int cols,Cell futurecell[][])
+	{
+		for(int x=0; x<rows; x++){ 
+			for(int y=0; y<cols; y++){
+				//adds cells to grid
+		GameOfLifeMain.presentCellStateArray[x][y].setState(futurecell[x][y].getState());	 
+			}
+		}
+		super.repaint();
 	}
 
 	/**
