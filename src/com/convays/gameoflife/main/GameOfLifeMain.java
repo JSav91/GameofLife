@@ -48,12 +48,12 @@ public class GameOfLifeMain{
 			}
 		}
 		gridManager.createGridiew(rows, cols, futureCellStateArray);
-		/*try {
-			TimeUnit.SECONDS.sleep(1);
+		try {
+			TimeUnit.MILLISECONDS.sleep(500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		}while(true);
 		
 	}
