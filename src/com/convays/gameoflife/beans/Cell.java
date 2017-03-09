@@ -17,6 +17,8 @@ public class Cell extends JPanel{
 	int state;
 
 	//Constructor
+	
+	//Test
 	public Cell(int GridRow, int GridColumn) {
 
 		this.GridRow = GridRow;
