@@ -16,7 +16,7 @@ public class Cell extends JPanel{
 	private int GridColumn;
 	int state;
 
-	//Constructor
+	//Cell Constructor
 	
 	public Cell(int GridRow, int GridColumn) {
 
