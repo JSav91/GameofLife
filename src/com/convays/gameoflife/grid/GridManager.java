@@ -3,9 +3,12 @@
  */
 package com.convays.gameoflife.grid;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.convays.gameoflife.beans.Cell;
 import com.convays.gameoflife.main.GameOfLifeMain;
@@ -26,16 +29,35 @@ public class GridManager extends JFrame{
 	 * 
 	 */
 	public void createGridiew(int rows,int cols){
+		
+		// setting game panel and border layout
+		JPanel pnlGame= new JPanel();
+		pnlGame.setLayout(new BorderLayout(10, 10));
+		
+		// setting cell panel to contain cells
+		JPanel pnlCells = new JPanel();
+		pnlGame.add(pnlCells, BorderLayout.CENTER);
+		
+		// setting control panel
+		JPanel pnlControl = new JPanel();
+		JButton btnStart = new JButton("Start");
+		JButton btnStop = new JButton("Stop");
+		pnlControl.add(btnStart);
+		pnlControl.add(btnStop);
+		pnlGame.add(pnlControl, BorderLayout.SOUTH);
+		
+		// adding base panel to Jframe
+		super.add(pnlGame);
 
 		//Set JFame layout
-		super.setLayout(new GridLayout(rows, cols ,1,1));
+		pnlCells.setLayout(new GridLayout(rows, cols ,1,1));
 		GameOfLifeMain.presentCellStateArray= new Cell[rows][cols];
 		GameOfLifeMain.futureCellStateArray = new Cell[rows][cols];
 		//Populate the grid
 		for(int x=0; x<rows; x++){ 
 			for(int y=0; y<cols; y++){
 				//adds cells to grid
-				super.add(GameOfLifeMain.presentCellStateArray[x][y]= new Cell(rows,cols)); 
+				pnlCells.add(GameOfLifeMain.presentCellStateArray[x][y]= new Cell(rows,cols)); 
 				//initialise parallel array
 				GameOfLifeMain.futureCellStateArray[x][y] = new Cell(rows,cols);
 			}

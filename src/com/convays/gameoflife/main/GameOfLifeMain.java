@@ -5,6 +5,9 @@ package com.convays.gameoflife.main;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import com.convays.gameoflife.beans.Cell;
 import com.convays.gameoflife.grid.GridManager;
 
