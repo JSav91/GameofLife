@@ -5,6 +5,8 @@ package com.convays.gameoflife.grid;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,6 +23,7 @@ import com.convays.gameoflife.main.GameOfLifeMain;
 public class GridManager extends JFrame{
 
 	private static final long serialVersionUID = 1L;
+	public static boolean isRunning;
 
 	/**
 	 * Create the grid view
@@ -30,9 +33,11 @@ public class GridManager extends JFrame{
 	 */
 	public void createGridiew(int rows,int cols){
 		
+		isRunning = false;
 		// setting game panel and border layout
 		JPanel pnlGame= new JPanel();
 		pnlGame.setLayout(new BorderLayout(10, 10));
+		
 		
 		// setting cell panel to contain cells
 		JPanel pnlCells = new JPanel();
@@ -40,11 +45,33 @@ public class GridManager extends JFrame{
 		
 		// setting control panel
 		JPanel pnlControl = new JPanel();
-		JButton btnStart = new JButton("Start");
+		JButton btnStart = new JButton("Start");;
 		JButton btnStop = new JButton("Stop");
 		pnlControl.add(btnStart);
 		pnlControl.add(btnStop);
 		pnlGame.add(pnlControl, BorderLayout.SOUTH);
+		
+		// start and stop button action
+		btnStart.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				isRunning = true;
+				
+			}
+			
+		});
+		btnStop.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				isRunning = false;
+				
+			}
+			
+		});
 		
 		// adding base panel to Jframe
 		super.add(pnlGame);
