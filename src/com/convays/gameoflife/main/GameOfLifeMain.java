@@ -25,8 +25,8 @@ public class GameOfLifeMain{
 	public static void main(String[] args) {
 
 		//Create the initial GridManager
-		int rows=100;
-		int cols=100;
+		int rows=50;
+		int cols=50;
 		int neighborCount=0;
 		GridManager gridManager= new GridManager();
 		//Create Gridview
@@ -40,7 +40,14 @@ public class GameOfLifeMain{
 							//System.out.println("Neighbour count for Cell["+xPos+"]["+yPos+"]= "+neighborCount);
 							if(neighborCount>1 && neighborCount<4)
 							{
+								if(neighborCount==3)
+								{
 								futureCellStateArray[xPos][yPos].setState(1);
+								}
+								else
+								{
+									futureCellStateArray[xPos][yPos].setState(presentCellStateArray[xPos][yPos].getState());
+								}
 							}
 							else
 							{
@@ -52,11 +59,13 @@ public class GameOfLifeMain{
 					gridManager.createGridiew(rows, cols, futureCellStateArray);
 				}
 				try {
-					TimeUnit.MILLISECONDS.sleep(500);
+					TimeUnit.MILLISECONDS.sleep(300);
+					
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
 			}while(true);
 		
 	}

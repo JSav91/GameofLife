@@ -186,9 +186,9 @@ public class GridManager extends JFrame{
 					cell[xPos-1][yPos+1].getState()+ //North East
 					cell[xPos+1][yPos].getState()+//South
 					cell[xPos+1][yPos+1].getState()+ //South East	
-					cell[xPos-1][yPos].getState()+//Right North West
-					cell[xPos][yPos].getState()+//Right North 
-					cell[xPos+1][yPos].getState();//right South East
+					cell[xPos-1][yMax].getState()+//Right North West
+					cell[xPos][yMax].getState()+//Right North 
+					cell[xPos+1][yMax].getState();//right South East
 
 		}
 		else if(yPos ==yMax){// For all other positions in the last column 
@@ -197,9 +197,9 @@ public class GridManager extends JFrame{
 					cell[xPos-1][yPos].getState()+ //North
 					cell[xPos+1][yPos-1].getState()+ //South West
 					cell[xPos+1][yPos].getState()+ //South
-					cell[xPos-1][yPos].getState()+//Left North West
-					cell[xPos][yPos].getState()+//Left North 
-					cell[xPos+1][yPos].getState();//Left  South East
+					cell[xPos-1][0].getState()+//Left North West
+					cell[xPos][0].getState()+//Left North 
+					cell[xPos+1][0].getState();//Left  South East
 		}
 
 		return neighborCount;
